@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Ia</th>
+        <th>Ib</th>
+        <th>Ic</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let measure of measurements">
+        <td>{{measure.id}}</td>
+        <td>{{ measure.ia}}</td>
+        <td>{{ measure.ib}}</td>
+        <td>{{ measure.ic}}</td>
+    </tr>
+    </tbody>
+</table>
