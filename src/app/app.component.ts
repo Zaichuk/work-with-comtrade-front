@@ -28,6 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
     measurements: Measurement[] = [];
     sub1: Subscription = new Subscription();
     sub2: Subscription = new Subscription();
+    isTableVisible = false;
 
     constructor(
         private transfer: CommunicationService,
@@ -52,8 +53,8 @@ export class AppComponent implements OnInit, OnDestroy {
         this.sub2 = this.http.getMeasurements().subscribe((value) => {
             this.measurements = value;
             this.transfer.addMeasurements(this.measurements);
-            console.log(value);
         });
+        this.isTableVisible = true;
     }
 
     ngOnDestroy(): void {

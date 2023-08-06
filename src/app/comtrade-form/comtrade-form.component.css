@@ -4,21 +4,19 @@
   justify-content: center;
   border: 1px solid black;
   flex-direction: column;
+  gap: 20px;
 }
 
 button{
   height: 25px;
   width: 300px;
-  margin-bottom: 25px;
 }
 
 .input{
   height: 25px;
   width: 300px;
-  margin-bottom: 25px;
 }
 
 .header{
   font-size: 25px;
-  margin-bottom: 25px;
 }
