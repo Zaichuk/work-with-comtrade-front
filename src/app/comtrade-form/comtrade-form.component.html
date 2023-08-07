@@ -1,0 +1,5 @@
+<form class="form" [formGroup]="form" (submit)="onSubmit()">
+  <h1 class="header">  {{title}}</h1>
+  <input type="file" class="input" (change)="onFileSelected($event)">
+  <button type="submit" class="button" [disabled]="form.invalid">Загрузить</button>
+</form>
