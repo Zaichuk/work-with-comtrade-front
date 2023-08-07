@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CommunicationService} from "./communication.service";
 import {HttpService} from "./http.service";
 import {Subscription} from "rxjs";
+import {DomSanitizer} from "@angular/platform-browser";
 
 export class Measurement {
     id: number;
@@ -26,20 +27,31 @@ export class AppComponent implements OnInit, OnDestroy {
     title = 'work-with-comtrade-front';
     file: any;
     measurements: Measurement[] = [];
-    sub1: Subscription = new Subscription();
-    sub2: Subscription = new Subscription();
+    sub: Subscription[] = [
+        new Subscription(),
+        new Subscription(),
+        new Subscription()
+    ];
     isTableVisible = false;
+    svgContent: any;
 
     constructor(
+        private sanitizer: DomSanitizer,
         private transfer: CommunicationService,
         private http: HttpService
     ) {
     }
 
     ngOnInit(): void {
-        this.sub1 = this.transfer.file$.subscribe((value) => {
+        const svgPath = 'assets/logo11.svg';
+
+        this.sub[0] = this.transfer.file$.subscribe((value) => {
             this.file = value;
             this.getMeasurements();
+        });
+
+        this.sub[2] = this.http.getSvg(svgPath).subscribe((value) => {
+            this.svgContent = this.sanitizer.bypassSecurityTrustHtml(value);
         });
     }
 
@@ -50,7 +62,7 @@ export class AppComponent implements OnInit, OnDestroy {
     getMeasurements(): void {
         this.uploadFile();
 
-        this.sub2 = this.http.getMeasurements().subscribe((value) => {
+        this.sub[1] = this.http.getMeasurements().subscribe((value) => {
             this.measurements = value;
             this.transfer.addMeasurements(this.measurements);
         });
@@ -58,7 +70,9 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.sub1.unsubscribe();
-        this.sub2.unsubscribe();
+        this.sub.forEach((el) => {
+                el.unsubscribe();
+            }
+        );
     }
 }
