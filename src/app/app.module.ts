@@ -6,19 +6,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TableComponent } from './table/table.component';
 import { CommonModule } from '@angular/common';
+import { AppRoutingModule } from './app-routing.module';
+import { SvgPanComponent } from './svg-pan/svg-pan.component';
+import { SvgWithButtonsComponent } from './svg-with-buttons/svg-with-buttons.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ComtradeFormComponent,
-    TableComponent
+    TableComponent,
+    SvgPanComponent,
+    SvgWithButtonsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

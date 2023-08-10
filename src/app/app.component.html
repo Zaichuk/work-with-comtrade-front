@@ -1,21 +1,5 @@
 <h1> Work with comtrade file</h1>
-<div [innerHTML]="svgContent"></div>
+<app-svg-pan></app-svg-pan>
 <app-comtrade-form></app-comtrade-form>
-<!--<br>-->
-<div>
-    <div>
-        <button (click)="moveUp()" >move up</button>
-        <button (click)="zoomIn()" >zoom in</button>
-    </div>
-    <div>
-        <button (click)="moveLeft()" >move left</button>
-        <button (click)="moveRight()" >move right</button>
-    </div>
-    <div>
-        <button (click)="moveDown()" >move down</button>
-        <button (click)="zoomOut()" >zoom out</button>
-    </div>
-</div>
-
-<!--<br>-->
+<app-svg-with-buttons></app-svg-with-buttons>
 <app-table *ngIf="isTableVisible"></app-table>
