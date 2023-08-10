@@ -25,5 +25,12 @@ export class HttpService {
             'http://localhost:9006/getComtrade'
         );
     }
+
+    getSvg(path: string): Observable<string> {
+        return this.client.get(
+            path,
+            {responseType: 'text'}
+        );
+    }
 }
 

@@ -26,8 +26,10 @@ export class AppComponent implements OnInit, OnDestroy {
     title = 'work-with-comtrade-front';
     file: any;
     measurements: Measurement[] = [];
-    sub1: Subscription = new Subscription();
-    sub2: Subscription = new Subscription();
+    sub: Subscription[] = [
+        new Subscription(),
+        new Subscription(),
+    ];
     isTableVisible = false;
 
     constructor(
@@ -37,7 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.sub1 = this.transfer.file$.subscribe((value) => {
+        this.sub[0] = this.transfer.file$.subscribe((value) => {
             this.file = value;
             this.getMeasurements();
         });
@@ -50,7 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
     getMeasurements(): void {
         this.uploadFile();
 
-        this.sub2 = this.http.getMeasurements().subscribe((value) => {
+        this.sub[1] = this.http.getMeasurements().subscribe((value) => {
             this.measurements = value;
             this.transfer.addMeasurements(this.measurements);
         });
@@ -58,7 +60,9 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.sub1.unsubscribe();
-        this.sub2.unsubscribe();
+        this.sub.forEach((el) => {
+                el.unsubscribe();
+            }
+        );
     }
 }
