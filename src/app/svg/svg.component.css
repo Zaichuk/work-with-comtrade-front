@@ -1,0 +1,13 @@
+header {
+    display: flex;
+    flex-direction: column;
+    background: lightgray;
+    color: black;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    height: 30vh;
+    width: 10vh;
+    padding: 10vw 0;
+}
+
