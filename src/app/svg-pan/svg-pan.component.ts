@@ -34,5 +34,4 @@ export class SvgPanComponent implements OnInit, AfterViewInit {
     ngAfterViewInit(): void {
         panzoom(this.svg.nativeElement);
     }
-
 }

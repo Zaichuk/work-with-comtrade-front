@@ -9,6 +9,10 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { SvgPanComponent } from './svg-pan/svg-pan.component';
 import { SvgWithButtonsComponent } from './svg-with-buttons/svg-with-buttons.component';
+import {RouterLink, RouterOutlet} from "@angular/router";
+import { ComtradeComponent } from './comtrade/comtrade.component';
+import { SvgComponent } from './svg/svg.component';
+import {NgDynamicBreadcrumbModule} from "../../ng-dynamic-breadcrumb/src/lib/ng-dynamic-breadcrumb.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +20,9 @@ import { SvgWithButtonsComponent } from './svg-with-buttons/svg-with-buttons.com
     ComtradeFormComponent,
     TableComponent,
     SvgPanComponent,
-    SvgWithButtonsComponent
+    SvgWithButtonsComponent,
+    ComtradeComponent,
+    SvgComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,10 @@ import { SvgWithButtonsComponent } from './svg-with-buttons/svg-with-buttons.com
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterLink,
+    RouterOutlet,
+    NgDynamicBreadcrumbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

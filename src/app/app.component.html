@@ -1,5 +1,5 @@
-<h1> Work with comtrade file</h1>
-<app-svg-pan></app-svg-pan>
-<app-comtrade-form></app-comtrade-form>
-<app-svg-with-buttons></app-svg-with-buttons>
-<app-table *ngIf="isTableVisible"></app-table>
+<header>
+    <div class="bar" [routerLink]="['/']" >home</div>
+    <div class="bar" [routerLink]="['/svg']" >svg</div>
+</header>
+<router-outlet></router-outlet>

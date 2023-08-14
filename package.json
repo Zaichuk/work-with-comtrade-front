@@ -20,9 +20,7 @@
     "@angular/router": "^16.1.0",
     "ngx-panzoom": "^16.0.0",
     "panzoom": "^9.4.3",
-    "react-svg-pan-zoom": "^3.12.1",
     "rxjs": "~7.8.0",
-    "svg-pan-zoom": "^3.6.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
