@@ -12,7 +12,7 @@ import { SvgWithButtonsComponent } from './svg-with-buttons/svg-with-buttons.com
 import {RouterLink, RouterOutlet} from "@angular/router";
 import { ComtradeComponent } from './comtrade/comtrade.component';
 import { SvgComponent } from './svg/svg.component';
-import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
+import {NgDynamicBreadcrumbModule} from "../../ng-dynamic-breadcrumb/src/lib/ng-dynamic-breadcrumb.module";
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
     AppRoutingModule,
     RouterLink,
     RouterOutlet,
-    NgDynamicBreadcrumbModule
+    NgDynamicBreadcrumbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

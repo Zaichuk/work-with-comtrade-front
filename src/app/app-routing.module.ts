@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {AppComponent} from "./app.component";
 import {SvgPanComponent} from "./svg-pan/svg-pan.component";
 import {SvgWithButtonsComponent} from "./svg-with-buttons/svg-with-buttons.component";
-import {RouterLink, RouterOutlet} from "@angular/router";
 import {ComtradeComponent} from "./comtrade/comtrade.component";
 import {SvgComponent} from "./svg/svg.component";
-
-
 
 const routes : Routes = [
     {path: 'home', component: ComtradeComponent},
